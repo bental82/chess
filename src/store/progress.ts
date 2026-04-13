@@ -16,6 +16,36 @@ interface ProgressState {
   recordAttempt: (id: string) => void;
   visitLesson: (id: string) => void;
   reset: () => void;
+  importState: (snapshot: ProgressSnapshot) => void;
+}
+
+export interface ProgressSnapshot {
+  version: 1;
+  exportedAt: number;
+  completedExercises: Record<string, ExerciseRecord>;
+  attempts: Record<string, number>;
+  visitedLessons: Record<string, number>;
+}
+
+export function exportSnapshot(state: ProgressState): ProgressSnapshot {
+  return {
+    version: 1,
+    exportedAt: Date.now(),
+    completedExercises: state.completedExercises,
+    attempts: state.attempts,
+    visitedLessons: state.visitedLessons,
+  };
+}
+
+export function isValidSnapshot(x: unknown): x is ProgressSnapshot {
+  if (!x || typeof x !== 'object') return false;
+  const o = x as Record<string, unknown>;
+  return (
+    o.version === 1 &&
+    typeof o.completedExercises === 'object' && o.completedExercises !== null &&
+    typeof o.attempts === 'object' && o.attempts !== null &&
+    typeof o.visitedLessons === 'object' && o.visitedLessons !== null
+  );
 }
 
 export const useProgress = create<ProgressState>()(
@@ -47,6 +77,12 @@ export const useProgress = create<ProgressState>()(
         })),
       reset: () =>
         set({ completedExercises: {}, attempts: {}, visitedLessons: {} }),
+      importState: (snapshot) =>
+        set({
+          completedExercises: snapshot.completedExercises,
+          attempts: snapshot.attempts,
+          visitedLessons: snapshot.visitedLessons,
+        }),
     }),
     { name: 'chess-course-progress' },
   ),
@@ -69,6 +105,20 @@ export function chapterCompletion(
   const ids = chapter.lessons.flatMap(exerciseIdsInLesson);
   const solved = ids.filter((id) => completed[id]).length;
   return { solved, total: ids.length };
+}
+
+export function mostRecentLessonId(
+  visitedLessons: Record<string, number>,
+): string | null {
+  let bestId: string | null = null;
+  let bestTs = -1;
+  for (const [id, ts] of Object.entries(visitedLessons)) {
+    if (ts > bestTs) {
+      bestTs = ts;
+      bestId = id;
+    }
+  }
+  return bestId;
 }
 
 export function lessonCompletion(
