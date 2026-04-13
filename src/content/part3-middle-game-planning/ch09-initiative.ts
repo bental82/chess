@@ -14,9 +14,14 @@ export const ch09Initiative: Chapter = {
         'The initiative is the right to move first against a target. Pieces that move first dictate the play.',
       sections: [
         {
+          kind: 'quote',
+          text: 'A good player is always lucky.',
+          attribution: 'José Raúl Capablanca',
+        },
+        {
           kind: 'prose',
           markdown:
-            'You have the initiative when **your moves create threats** while your opponent\'s only deal with them. The initiative is not free — usually it costs a small concession (a pawn, time, or king safety) to obtain. The question is always: is the resulting pressure worth what was paid?\n\nA few practical rules:\n\n- **Develop with threats.** Each piece should not only come out but also create a problem for the opponent.\n- **Open lines** when ahead in development.\n- **Trade down** when your initiative wanes — the residual advantage usually transfers to a better endgame.',
+            'You have the initiative when **your moves create threats** while your opponent\'s only deal with them. The initiative is not free — usually it costs a small concession (a pawn, time, or king safety) to obtain. The question is always: is the resulting pressure worth what was paid?\n\nA few practical rules:\n\n- **Develop with threats.** Each piece should not only come out but also create a problem for the opponent.\n- **Open lines** when ahead in development.\n- **Trade down** when your initiative wanes — the residual advantage usually transfers to a better endgame.\n\nCapablanca\'s famous remark about luck is not a joke. The player who positions his pieces to exploit any future mistake *manufactures* opportunities that look like luck. The initiative is the practical name for that readiness.',
         },
       ],
     },

@@ -43,13 +43,24 @@ export const ch12Examples: Chapter = {
         {
           kind: 'exercise',
           id: 'ex-ch12-l1-3',
-          title: 'King and Queen',
-          fen: '5k2/8/5K2/6Q1/8/8/8/8 w - - 0 1',
+          title: 'The Arabian mate',
+          fen: '7k/R7/5N2/8/8/8/8/6K1 w - - 0 1',
           sideToMove: 'w',
-          solution: ['Qg8#'],
-          hint: 'Land the queen on the back rank, defended by the king.',
+          solution: ['Rh7#'],
+          hint: 'The knight on f6 already covers g8 and h7. One rook move finishes.',
           explanation:
-            'Qg8# — the queen reaches the back rank and is supported by the king on f6. Every escape square is covered.',
+            'Rh7# — an ancient mating pattern (hence "Arabian"). The knight on f6 covers g8, and the rook on h7 covers g7 along the 7th rank and checks h8 along the file. The black king cannot take the rook (defended by the knight).',
+        },
+        {
+          kind: 'exercise',
+          id: 'ex-ch12-l1-5',
+          title: 'Anastasia\'s mate',
+          fen: '8/4N1pk/8/8/8/4R3/8/6K1 w - - 0 1',
+          sideToMove: 'w',
+          solution: ['Rh3#'],
+          hint: 'The knight on e7 owns both g-file escape squares. Find the swing.',
+          explanation:
+            'Rh3# — a classical pattern named after a 19th-century romantic novel by Wilhelm Heinse. The knight covers g6 and g8; the black pawn occupies g7; the rook checks along the h-file. Nothing left for the king.',
         },
         {
           kind: 'exercise',

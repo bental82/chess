@@ -14,6 +14,11 @@ export const ch05OpeningStrategy: Chapter = {
         'Forget the names of openings. Internalise these three ideas and the names will take care of themselves.',
       sections: [
         {
+          kind: 'quote',
+          text: 'You may learn much more from a game you lose than from a game you win.',
+          attribution: 'José Raúl Capablanca',
+        },
+        {
           kind: 'prose',
           markdown:
             '## 1. Develop your minor pieces\n\nKnights and bishops belong on active squares before move ten. Move each minor piece **once** in the opening; do not chase the opponent\'s pieces with the same piece twice.\n\n## 2. Fight for the centre\n\nThe four central squares (e4, d4, e5, d5) are the busiest crossroads on the board. Pieces that influence the centre influence the whole game.\n\n## 3. Castle early\n\nThe king is the slowest piece. Get him out of the centre before the position opens. As a rule of thumb: **castle by move 10**.',

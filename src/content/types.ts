@@ -3,6 +3,7 @@ export type Square =
 
 export type Section =
   | { kind: 'prose'; markdown: string }
+  | { kind: 'quote'; text: string; attribution: string; source?: string }
   | { kind: 'diagram'; fen: string; caption?: string; orientation?: 'white' | 'black' }
   | {
       kind: 'walkthrough';

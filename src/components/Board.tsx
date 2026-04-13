@@ -1,4 +1,5 @@
 import { Chessboard } from 'react-chessboard';
+import { useBoardSize } from '../lib/useBoardSize';
 
 interface BoardProps {
   fen: string;
@@ -7,10 +8,12 @@ interface BoardProps {
   caption?: string;
 }
 
-export default function Board({ fen, orientation = 'white', size = 360, caption }: BoardProps) {
+export default function Board({ fen, orientation = 'white', size, caption }: BoardProps) {
+  const responsive = useBoardSize();
+  const px = size ?? responsive;
   return (
     <figure className="my-4 inline-block">
-      <div style={{ width: size }}>
+      <div style={{ width: px }}>
         <Chessboard
           position={fen}
           boardOrientation={orientation}

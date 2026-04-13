@@ -14,6 +14,12 @@ export const ch01SimpleMates: Chapter = {
         'The first mate to master. The Queen drives the king toward the edge while our own king walks up to deliver the killing blow.',
       sections: [
         {
+          kind: 'quote',
+          text: 'In order to improve your game, you must study the endgame before everything else.',
+          attribution: 'José Raúl Capablanca',
+          source: 'Chess Fundamentals (1921)',
+        },
+        {
           kind: 'prose',
           markdown:
             'The procedure is simple but worth memorising as a set of habits, not as a sequence of moves.\n\n## The plan\n\n- Use the **Queen** as a fence, keeping the lone king inside ever-shrinking rectangles.\n- Bring the **King** up to support, since the Queen alone never gives mate — she always needs the King close by to cover escape squares.\n- The mating square is on the edge of the board, ideally a **corner** or near it.\n\n## A useful trick: the knight\'s-move\n\nIf you place the Queen a knight\'s-move away from the lone king, you box him into a small area without ever giving stalemate. Walk your King in, stay close to the Queen, and the mate appears almost by itself.',
@@ -46,17 +52,6 @@ export const ch01SimpleMates: Chapter = {
           hint: 'Bring the Queen next to your own King so she is protected and covers every escape square.',
           explanation:
             'Qe7# — the Queen, supported by her King on e6, attacks e8 and covers d7, d8, f7 and f8 simultaneously.',
-        },
-        {
-          kind: 'exercise',
-          id: 'ex-ch01-l1-2',
-          title: 'A second pattern',
-          fen: '5k2/8/5K2/6Q1/8/8/8/8 w - - 0 1',
-          sideToMove: 'w',
-          solution: ['Qg8#'],
-          hint: 'Land the Queen on the edge while the lone king has nowhere to run.',
-          explanation:
-            'Qg8# — the Queen reaches the back rank with check; e7, f7 and g7 are all covered by the white King on f6.',
         },
       ],
     },

@@ -3,6 +3,7 @@ import { Chessboard } from 'react-chessboard';
 import { Chess } from 'chess.js';
 import { useProgress } from '../store/progress';
 import { moveMatches } from '../lib/chess';
+import { useBoardSize } from '../lib/useBoardSize';
 
 interface ExerciseBoardProps {
   id: string;
@@ -36,6 +37,7 @@ export default function ExerciseBoard({
   const recordAttempt = useProgress((s) => s.recordAttempt);
   const markSolved = useProgress((s) => s.markExerciseSolved);
   const completed = useProgress((s) => s.completedExercises[id]);
+  const boardSize = useBoardSize();
 
   const orientation = sideToMove === 'w' ? 'white' : 'black';
 
@@ -142,7 +144,7 @@ export default function ExerciseBoard({
       </header>
 
       <div className="flex flex-col sm:flex-row gap-4">
-        <div style={{ width: 360 }}>
+        <div style={{ width: boardSize }}>
           <Chessboard
             position={position}
             boardOrientation={orientation}

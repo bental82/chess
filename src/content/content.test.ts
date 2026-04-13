@@ -50,4 +50,21 @@ describe('course content', () => {
       }
     }
   });
+
+  it('any solution move annotated with # is actually checkmate', () => {
+    for (const s of allSections) {
+      if (s.kind !== 'exercise') continue;
+      const game = new Chess(s.fen);
+      for (let i = 0; i < s.solution.length; i++) {
+        const san = s.solution[i];
+        game.move(san);
+        if (san.endsWith('#')) {
+          expect(
+            game.isCheckmate(),
+            `exercise ${s.id} move #${i + 1} "${san}" is annotated as mate but isn\'t`,
+          ).toBe(true);
+        }
+      }
+    }
+  });
 });

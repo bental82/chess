@@ -3,6 +3,7 @@ import Board from './Board';
 import ExerciseBoard from './ExerciseBoard';
 import MoveStepper from './MoveStepper';
 import Markdown from './Markdown';
+import Quote from './Quote';
 
 export default function LessonRenderer({ sections }: { sections: Section[] }) {
   return (
@@ -11,6 +12,8 @@ export default function LessonRenderer({ sections }: { sections: Section[] }) {
         switch (s.kind) {
           case 'prose':
             return <Markdown key={i} source={s.markdown} />;
+          case 'quote':
+            return <Quote key={i} text={s.text} attribution={s.attribution} source={s.source} />;
           case 'diagram':
             return (
               <Board

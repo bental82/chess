@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { Chessboard } from 'react-chessboard';
 import { Chess } from 'chess.js';
+import { useBoardSize } from '../lib/useBoardSize';
 
 interface MoveStepperProps {
   fen: string;
@@ -17,8 +18,10 @@ export default function MoveStepper({
   commentary,
   orientation = 'white',
   caption,
-  size = 360,
+  size,
 }: MoveStepperProps) {
+  const responsive = useBoardSize();
+  const px = size ?? responsive;
   const [ply, setPly] = useState(0); // 0 = starting position, 1 = after first move
 
   const positions = useMemo(() => {
@@ -51,7 +54,7 @@ export default function MoveStepper({
   return (
     <figure className="my-4">
       <div className="flex flex-col sm:flex-row gap-4 items-start">
-        <div style={{ width: size }}>
+        <div style={{ width: px }}>
           <Chessboard
             position={currentFen}
             boardOrientation={orientation}
