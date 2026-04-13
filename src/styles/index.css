@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body, #root {
+    height: 100%;
+  }
+  body {
+    @apply bg-parchment text-ink font-serif;
+  }
+  h1, h2, h3, h4 {
+    @apply font-serif tracking-tight;
+  }
+}
+
+@layer components {
+  .prose-lesson p { @apply leading-relaxed mb-4; }
+  .prose-lesson h2 { @apply text-2xl font-bold mt-8 mb-3; }
+  .prose-lesson h3 { @apply text-xl font-semibold mt-6 mb-2; }
+  .prose-lesson ul { @apply list-disc pl-6 mb-4; }
+  .prose-lesson ol { @apply list-decimal pl-6 mb-4; }
+  .prose-lesson em { @apply italic; }
+  .prose-lesson strong { @apply font-semibold; }
+  .prose-lesson code { @apply font-mono text-sm bg-amber-100 px-1 rounded; }
+}
